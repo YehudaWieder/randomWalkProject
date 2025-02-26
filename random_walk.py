@@ -3,7 +3,6 @@ import random
 import matplotlib.pyplot as plt
 
 plt.switch_backend('TkAgg')
-import numpy as np
 
 import pandas as pd
 
