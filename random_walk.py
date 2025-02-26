@@ -1,13 +1,16 @@
 import random
 
 import matplotlib.pyplot as plt
+
 plt.switch_backend('TkAgg')
 import numpy as np
 
 import pandas as pd
 
+
 def get_coordinates_data(dims, steps):
     return [[0] * (steps + 1) for _ in range(0, dims)]
+
 
 def random_walk(coordinates_data):
     for step in range(1, len(coordinates_data[0])):
@@ -27,8 +30,8 @@ def display_walk_data(coordinates_data):
         x = plt.axes(projection="3d")
         x.plot([coordinates_data[0]], [coordinates_data[1]], [coordinates_data[2]])
     elif len(coordinates_data) >= 4:
-        data = {f' dimensions {i + 1}' : coordinates_data[i] for i in range(len(coordinates_data))
-        }
+        data = {f' dimensions {i + 1}': coordinates_data[i] for i in range(len(coordinates_data))
+                }
         df = pd.DataFrame(data)
         print(df)
     plt.show()
@@ -37,7 +40,7 @@ def display_walk_data(coordinates_data):
 while True:
     try:
         dims_input = input(str("input a integer number for dimensions to walk "))
-        assert  dims_input.isdigit() and int(dims_input) > 0
+        assert dims_input.isdigit() and int(dims_input) > 0
         dims = int(dims_input)
         break
     except AssertionError:
@@ -48,7 +51,7 @@ while True:
 while True:
     try:
         steps_input = input(str("input a integer number for steps to walk "))
-        assert  steps_input.isdigit() and int(steps_input) > 0
+        assert steps_input.isdigit() and int(steps_input) > 0
         steps = int(steps_input)
         break
     except AssertionError:
